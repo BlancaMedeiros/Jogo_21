@@ -12,21 +12,20 @@ def obter_score_total_jogador (nome):
         if total_jogador <= 21:
             deseja_continuar = input ("Deseja sortear mais um número? s/n ") == "s"
     if total_jogador > 21:
-        print("VOCÊ PERDEU, PORQUE PASSOU DE 21")
+        input("Você perdeu, pois passou de 21, aperte enter para continuar")
     return total_jogador
 
-jogador1 = input("Digite o nome do primeiro jogador: ")
-jogador2 = input("Digite o nome do segundo jogador: ")
+numero_jogadores = int(input("Quantos jogadores vão participar: "))
+lista_jogadores = [] * numero_jogadores
+lista_jogadores_zerado = [] * numero_jogadores
 
-total_jogador1 = obter_score_total_jogador(jogador1)
-total_jogador2 = obter_score_total_jogador(jogador2)
+for indice_jogador in range(numero_jogadores):
+    nome = input("Digite o nome do jogador:")
+    lista_jogadores.append(nome)
 
-if total_jogador1 < 21 and total_jogador2 < 21:
-    if total_jogador1 == total_jogador2:
-        print("Como o total dos dois jogadores foi igual, então temos um empate!")
-    elif total_jogador2 > total_jogador1:
-        print("Jogador: ", jogador2, "Você ganhou, com o total de ", total_jogador2, "pontos!")
-    else:
-        print("Jogador: ", jogador1, "Você ganhou, com o total de ", total_jogador1, "pontos!")
-
+for indice_jogador in range(numero_jogadores):
+    nome_jogador = lista_jogadores[indice_jogador]
+    Total_jogador = obter_score_total_jogador(nome_jogador)
+    lista_jogadores_zerado.append(Total_jogador)
+     
 
